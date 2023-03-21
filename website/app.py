@@ -1,17 +1,29 @@
 # Description: This is the main file of the website
 from flask import Flask,render_template,request,redirect,url_for,flash
 import sqlite3 as sql
-app=Flask(__name__)
+app=Flask(__name__, static_url_path='/static')
 
 @app.route("/")
-@app.route("/index")
 def index():
+    return render_template("index.html")
+
+
+@app.route("/setup")
+def setup():
+    return render_template("setup.html")
+
+@app.route("/home")
+def shome():
+    return render_template("home.html")
+
+@app.route("/dashboard")
+def dashboard():
     con=sql.connect("db_web.db")
     con.row_factory=sql.Row
     cur=con.cursor()
     cur.execute("select * from users")
     data=cur.fetchall()
-    return render_template("index.html",datas=data)
+    return render_template("dashboard.html",datas=data)
 
 @app.route("/add_user",methods=['POST','GET'])
 def add_user():
@@ -23,7 +35,7 @@ def add_user():
         cur.execute("insert into users(UNAME,CONTACT) values (?,?)",(uname,contact))
         con.commit()
         flash('User Added','success')
-        return redirect(url_for("index"))
+        return redirect(url_for("dashboard"))
     return render_template("add_user.html")
 
 @app.route("/edit_user/<string:uid>",methods=['POST','GET'])
@@ -36,7 +48,7 @@ def edit_user(uid):
         cur.execute("update users set UNAME=?,CONTACT=? where UID=?",(uname,contact,uid))
         con.commit()
         flash('User Updated','success')
-        return redirect(url_for("index"))
+        return redirect(url_for("dashboard"))
     con=sql.connect("db_web.db")
     con.row_factory=sql.Row
     cur=con.cursor()
@@ -51,7 +63,7 @@ def delete_user(uid):
     cur.execute("delete from users where UID=?",(uid,))
     con.commit()
     flash('User Deleted','warning')
-    return redirect(url_for("index"))
+    return redirect(url_for("dashboard"))
     
 if __name__=='__main__':
     app.secret_key='admin123'
