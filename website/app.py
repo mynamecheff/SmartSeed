@@ -13,8 +13,20 @@ def setup():
     return render_template("setup.html")
 
 @app.route("/home")
-def shome():
+def home():
     return render_template("home.html")
+
+@app.route("/science")
+def science():
+    return render_template("plant_science.html")
+
+@app.route("/sustainability")
+def sustainability():
+    return render_template("sustainability.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 @app.route("/dashboard")
 def dashboard():

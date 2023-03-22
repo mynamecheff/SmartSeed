@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Sustainability</h1>
+    <p class="lead">SmartSeed is committed to sustainable and environmentally friendly practices, both in our vertical farms and in our operations as a company.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mb-4 box-shadow">
+        <img class="card-img-top" src="https://picsum.photos/id/1015/400/250" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Reducing Food Waste</h5>
+          <p class="card-text">We use precise growing techniques to ensure that our crops are grown efficiently, reducing food waste and making the most of our resources.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4 box-shadow">
+        <img class="card-img-top" src="https://picsum.photos/id/1018/400/250" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Sustainable Energy</h5>
+          <p class="card-text">Our vertical farms are powered by renewable energy sources, such as solar and wind power, reducing our carbon footprint.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4 box-shadow">
+        <img class="card-img-top" src="https://picsum.photos/id/1005/400/250" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Reducing Water Usage</h5>
+          <p class="card-text">Our vertical farms use significantly less water than traditional farming methods, reducing our water usage and preserving this precious resource.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2 class="text-center mb-4">Our Sustainability Goals</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item">Reduce our carbon footprint by 50% by 2030</li>
+        <li class="list-group-item">Use 100% renewable energy to power our vertical farms by 2025</li>
+        <li class="list-group-item">Reduce our water usage by 75% by 2025</li>
+        <li class="list-group-item">Eliminate plastic packaging from our products by 2023</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <p>We are committed to sustainability not just in our operations, but in our products as well. We believe that everyone deserves access to fresh, healthy, and sustainably grown food, and we're working to make that a reality.</p>
+      <p>To learn more about our sustainability initiatives and how you can get involved, please contact us.</p>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+    </div>
+  </div>
+
+</div>
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input type="text" class="form-control" id="nameInput" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="emailInput">Email address</label>
+            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter your email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="messageTextarea">Message</label>
+            <textarea class="form-control" id="messageTextarea" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Contact Modal -->
+</div><!-- End Container -->
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper-core.min.js" integrity="sha256-qeN8Wq3oo3vZtcERryEg87+Nf3zqUh1w17amxNRkLGo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-LXoT/La4I7NfPF+Ae1/7zJHWvD8jLzLhFJyLpXwsYhOjWlQrvg2rZ+0jL5ItR8W0" crossorigin="anonymous"></script>
+</body>
+</html>
+{% endblock %}
