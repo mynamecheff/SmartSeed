@@ -12,7 +12,17 @@
     <div class="row">
       <div class="col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="https://via.placeholder.com/500x300.png?text=Image+1" alt="Card image cap">
+          <img class="card-img-top" src="{{ url_for('static', filename='img/5.jpeg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">What is a vertical farm?</h5>
+            <p class="card-text">Vertical farming is a system of growing crops in vertically stacked layers or trays in a controlled environment, using hydroponics, aeroponics, and LED lighting to increase yield and efficiency, and reduce dependence on traditional soil-based farming.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/7.png') }}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">What are plants?</h5>
             <p class="card-text">Plants are multicellular organisms that belong to the kingdom Plantae. They are characterized by their ability to produce their own food through photosynthesis, which involves converting sunlight, water, and carbon dioxide into sugar and oxygen.</p>
@@ -22,17 +32,7 @@
 
       <div class="col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="https://via.placeholder.com/500x300.png?text=Image+2" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Plant anatomy</h5>
-            <p class="card-text">Plants have a variety of specialized structures that allow them to perform their unique functions. These include leaves, stems, roots, and flowers, each of which has a specific role in the plant's growth and reproduction.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="https://via.placeholder.com/500x300.png?text=Image+3" alt="Card image cap">
+          <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/6.jpg') }}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Plant growth and development</h5>
             <p class="card-text">Plants go through a series of stages as they grow and develop, from seed to maturity. These stages are characterized by changes in the plant's size, shape, and function, and are regulated by a variety of internal and external factors.</p>
@@ -42,7 +42,7 @@
 
       <div class="col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="https://via.placeholder.com/500x300.png?text=Image+4" alt="Card image cap">
+          <img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/8.jpg') }}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Plant diversity</h5>
             <p class="card-text">Plants come in many different shapes and sizes, and can be found in virtually every environment on Earth. From towering trees to tiny mosses, plants have evolved to fill a wide variety of ecological niches.</p>
@@ -57,6 +57,11 @@
     .bg-smartseed {
       background-color: #2e6e6e;
     }
+
+  .card-img-top {
+    height: 300px;
+      object-fit: cover;
+ }
     
     </style>
 
