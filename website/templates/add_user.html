@@ -2,15 +2,27 @@
 {% block body %}
   <div class='row'>
     <div class='col-5 mx-auto'>
-      <h3>Add user</h3><hr>
+      <h3>Add Plant</h3><hr>
       <form method='post' action='{{url_for("add_user")}}'>
         <div class='form-group'>
-          <label>User Name</label>
-          <input type='text' name='uname' required class='form-control'>
+          <label>Plant Name</label>
+          <input type='text' name='Sort' required class='form-control'>
         </div>
         <div class='form-group'>
-          <label>Contact</label>
-          <input type='text' name='contact' required class='form-control'>
+          <label>Date Planted</label>
+          <input type='date' name='Planted' required class='form-control'>
+        </div>
+        <div class='form-group'>
+          <label>Date Harvested</label>
+          <input type='date' name='Harvested' required class='form-control'>
+        </div>
+        <div class='form-group'>
+          <label>Location</label>
+          <input type='text' name='Location' required class='form-control'>
+        </div>
+        <div class='form-group'>
+          <label>Description</label>
+          <input type='text' name='Description' required class='form-control'>
         </div>
         <input type='submit' value='Submit' class='btn btn-primary'>
       </form>

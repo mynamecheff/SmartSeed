@@ -14,8 +14,8 @@ cur.execute("DROP TABLE IF EXISTS plants")
 sql ='''CREATE TABLE "Plants" (
 	"ID"	INTEGER PRIMARY KEY AUTOINCREMENT,
 	"Sort"	TEXT,
-    "Date Planted"	DATE,
-    "Date Harvested"	DATE,
+    "Planted"	DATE,
+    "Harvested"	DATE,
     "Location"	TEXT,
 	"Description"	TEXT
 )'''
