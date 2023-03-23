@@ -2,19 +2,22 @@
 import sqlite3 as sql
 
 #connect to SQLite
-con = sql.connect('db_web.db')
+con = sql.connect('db_plants.db')
 
 #Create a Connection
 cur = con.cursor()
 
 #Drop users table if already exsist.
-cur.execute("DROP TABLE IF EXISTS users")
+cur.execute("DROP TABLE IF EXISTS plants")
 
 #Create users table  in db_web database
 sql ='''CREATE TABLE "Plants" (
-	"UID"	INTEGER PRIMARY KEY AUTOINCREMENT,
-	"UNAME"	TEXT,
-	"CONTACT"	TEXT
+	"ID"	INTEGER PRIMARY KEY AUTOINCREMENT,
+	"Sort"	TEXT,
+    "Date Planted"	DATE,
+    "Date Harvested"	DATE,
+    "Location"	TEXT,
+	"Description"	TEXT
 )'''
 cur.execute(sql)
 
@@ -25,3 +28,5 @@ con.commit()
 con.close()
 
 # Path: website/app.py
+# Compare this snippet from website/app.py:
+# # Description: This is the main file of the website
