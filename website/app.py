@@ -7,7 +7,6 @@ app=Flask(__name__, static_url_path='/static')
 def index():
     return render_template("index.html")
 
-
 @app.route("/setup")
 def setup():
     return render_template("setup.html")
