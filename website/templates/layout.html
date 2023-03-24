@@ -29,7 +29,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/home">Home </a>
+      <a class="nav-item nav-link" href="/home">Home </a>
       <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
       <a class="nav-item nav-link" href="/science">Plant Science Page</a>
       <a class="nav-item nav-link" href="/sustainability">Sustainability page</a>
@@ -83,6 +83,14 @@
       href="https://www.legalnature.com/guides/why-your-website-needs-a-strong-terms-of-use-agreement-and-what-to-include">legalnature.com</a>
   </div>
 </footer>
+
+<script>
+
+  $(document).ready(function() {
+    $('a[href="' + this.location.pathname + '"]').addClass('active');
+  });
+
+</script>
 
 <!-- CSS -->
 <!--To display the footer at the bottom-->
