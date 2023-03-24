@@ -1,95 +1,111 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Flask - SQLite</title>
-    <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Include jQuery and Popper.js JavaScript libraries -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <!-- Include Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </head>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-smartseed container-fluid">
-    <a class="navbar-brand" href="/">Our Cool logo HERE</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="home">Home </a>
-        <a class="nav-item nav-link" href="dashboard">Dashboard</a>
-        <a class="nav-item nav-link" href="science">Plant Science Page</a>
-        <a class="nav-item nav-link" href="sustainability">Sustainability page</a>
-        <a class="nav-item nav-link" href="about">About Us</a>
+
+<head>
+  <title>SmartSeed</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Include jQuery and Popper.js JavaScript libraries -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <!-- Include Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</head>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-smartseed container-fluid">
+  <a class="navbar-brand" href="/">Our Cool logo HERE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/home">Home </a>
+      <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+      <a class="nav-item nav-link" href="/science">Plant Science Page</a>
+      <a class="nav-item nav-link" href="/sustainability">Sustainability page</a>
+      <a class="nav-item nav-link" href="/about">About Us</a>
+    </div>
+  </div>
+</nav>
+
+<body>
+  <div class="container pt-3">
+    {% with messages=get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category,message in messages %}
+    <div class="alert alert-{{category}}">{{message}}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% block body %}
+
+    {% endblock %}
+  </div>
+</body>
+<!-- Footer -->
+<footer class="bg-light text-center text-lg-start">
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">About SmartSeed</h5>
+        <p>
+          At SmartSeed, we are committed to revolutionizing the way we grow and consume food. We specialize in vertical
+          farming technology that enables us to grow fresh,
+          healthy produce all year round, using fewer resources and less land. Our mission is to make sustainable,
+          locally grown food accessible to everyone, and we're proud
+          to be leading the way in this exciting field.
+        </p>
+      </div>
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Contact Us</h5>
+        <p>
+          Thank you for your interest in SmartSeed! If you have any questions or feedback about our vertical farming
+          solutions, please don't hesitate to get in touch.
+          You can reach us by phone or email, or simply fill out the contact form on this page. We look forward to
+          hearing from you and working together to build a brighter, more sustainable future for our planet.
+        </p>
       </div>
     </div>
-  </nav>
-  <body>
-    <div class="container pt-3">
-      {% with messages=get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-          {% for category,message in messages %}
-            <div class="alert alert-{{category}}">{{message}}</div>
-          {% endfor %}
-        {% endif %}
-      {% endwith %}
-      {% block body %}
-      
-      {% endblock %}
-    </div>
-  </body>
-  <!-- Footer -->
-  <footer class="bg-light text-center text-lg-start">
-    <div class="container p-4">
-      <div class="row">
-        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <h5 class="text-uppercase">About SmartSeed</h5>
-          <p>
-            At SmartSeed, we are committed to revolutionizing the way we grow and consume food. We specialize in vertical farming technology that enables us to grow fresh,
-            healthy produce all year round, using fewer resources and less land. Our mission is to make sustainable, locally grown food accessible to everyone, and we're proud 
-            to be leading the way in this exciting field.
-          </p>
-        </div>
-        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Contact Us</h5>
-          <p>
-            Thank you for your interest in SmartSeed! If you have any questions or feedback about our vertical farming solutions, please don't hesitate to get in touch. 
-            You can reach us by phone or email, or simply fill out the contact form on this page. We look forward to hearing from you and working together to build a brighter, more sustainable future for our planet.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      Terms of Use:
-      <a class="text-dark" href="https://www.legalnature.com/guides/why-your-website-needs-a-strong-terms-of-use-agreement-and-what-to-include">legalnature.com</a>
-    </div>
-  </footer>
+  </div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    Terms of Use:
+    <a class="text-dark"
+      href="https://www.legalnature.com/guides/why-your-website-needs-a-strong-terms-of-use-agreement-and-what-to-include">legalnature.com</a>
+  </div>
+</footer>
 
-  <!-- CSS -->
-  <!--To display the footer at the bottom-->
-  <style>
-html {
-  height: 100%;
-}
+<!-- CSS -->
+<!--To display the footer at the bottom-->
+<style>
+  html {
+    height: 100%;
+  }
 
-.navbar-dark.bg-smartseed {
-  background-color: #2e6e6e;
-}
+  .navbar-dark.bg-smartseed {
+    background-color: #2e6e6e;
+  }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
 
-.container {
-  flex: 1;
-}
+  .container {
+    flex: 1;
+  }
 
-footer {
-  margin-top: auto;
-}
-  </style>
+  footer {
+    margin-top: auto;
+  }
+</style>
+
 </html>

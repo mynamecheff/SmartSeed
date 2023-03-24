@@ -71,8 +71,8 @@ def edit_user(ID):
         description = request.form['Description']
         con = sql.connect("db_plants.db")
         cur = con.cursor()
-        cur.execute("update plants set Sort=?,Planted=?,Harvested=?,Location=?,Description where ID=?",
-                    (sort, planted, harvest, location, description, ID))
+        cur.execute("update plants set Sort=?,Planted=?,Harvested=?,Location=?,Description=? where ID=?",
+                     (sort, planted, harvest, location, description, ID))
         con.commit()
         flash('Plants Updated', 'success')
         return redirect(url_for("dashboard"))
