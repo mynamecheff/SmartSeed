@@ -3,15 +3,19 @@ import time
 
 # Define pins for UART communication
 rx = 16
-tx = 17
+tx = 1# Initialize seri
+import serial
 
-# Initialize serial communication through UART
-uart = UART(2, baudrate=115200, rx=rx, tx=tx, timeout=10)
+# Define serial port configuration
+serial_port = '/dev/ttyAMA0'
+baud_rate = 115200
+
+# Initialize serial communication object
+ser = serial.Serial(serial_port, baud_rate)
 
 while True:
-  
-  # Send data to Raspberry Pi
-  uart.write("Hello Raspberry Pi!\n")
+    # Read incoming data from ESP32
+    data = ser.readline().decode("utf-8")
 
-  # Wait for 1 second
-  time.sleep(1)
+    # Print the received data
+    print(data)

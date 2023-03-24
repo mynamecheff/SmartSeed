@@ -20,7 +20,9 @@
 </head>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-smartseed container-fluid">
-  <a class="navbar-brand" href="/">Our Cool logo HERE</a>
+  <a class="navbar-brand" href="/">
+    <img src="{{ url_for('static', filename='img/SmartSeed_Full_Logo_Hvit.png') }}" alt="Our Cool Logo">
+ </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -106,6 +108,12 @@
   footer {
     margin-top: auto;
   }
+
+  .navbar-brand img {
+  height: 35px; /* adjust to the height of your navbar */
+  object-fit: contain; /* or object-fit: cover; depending on the image aspect ratio */
+  padding: 5px; /* optional padding around the image */
+}
 </style>
 
 </html>
