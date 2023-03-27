@@ -3,7 +3,7 @@
   <div class='row'>
     <div class='col-5 mx-auto'>
       <h3>Edit Plants</h3><hr>
-      <form method='post' action='{{url_for("edit_user",ID=datas.ID)}}'>
+      <form method='post' action='{{url_for("edit_plant",ID=datas.ID)}}'>
         <div class='form-group'>
           <label>Sort</label>
           <input type='text' name='Sort' required class='form-control' value='{{datas.Sort}}'>

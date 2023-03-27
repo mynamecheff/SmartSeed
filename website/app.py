@@ -43,8 +43,8 @@ def dashboard():
     return render_template("dashboard.html", datas=data)
 
 
-@app.route("/add_user", methods=['POST', 'GET'])
-def add_user():
+@app.route("/add_plant", methods=['POST', 'GET'])
+def add_plant():
     if request.method == 'POST':
         sort = request.form['Sort']
         planted = request.form['Planted']
@@ -58,11 +58,11 @@ def add_user():
         con.commit()
         flash('Plants Updated', 'success')
         return redirect(url_for("dashboard"))
-    return render_template("add_user.html")
+    return render_template("add_plant.html")
 
 
-@app.route("/edit_user/<string:ID>", methods=['POST', 'GET'])
-def edit_user(ID):
+@app.route("/edit_plant/<string:ID>", methods=['POST', 'GET'])
+def edit_plant(ID):
     if request.method == 'POST':
         sort = request.form['Sort']
         planted = request.form['Planted']
@@ -81,11 +81,11 @@ def edit_user(ID):
     cur = con.cursor()
     cur.execute("select * from plants where ID=?", (ID,))
     data = cur.fetchone()
-    return render_template("edit_user.html", datas=data)
+    return render_template("edit_plant.html", datas=data)
 
 
-@app.route("/delete_user/<string:ID>", methods=['GET'])
-def delete_user(ID):
+@app.route("/delete_plant/<string:ID>", methods=['GET'])
+def delete_plant(ID):
     con = sql.connect("db_plants.db")
     cur = con.cursor()
     cur.execute("delete from plants where ID=?", (ID,))

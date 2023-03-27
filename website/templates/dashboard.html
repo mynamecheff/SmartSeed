@@ -3,7 +3,7 @@
 
 
 <h3 class='text-center text-muted mb-3'>Your SmartSeed farm infograph</h3>
-<p class='text-right'><a href='{{url_for("add_user")}}' class='btn btn-success '>+Add User</a></p>
+<p class='text-right'><a href='{{url_for("add_plant")}}' class='btn btn-success '>+Add User</a></p>
 <table class='table table-bordered'>
   <thead>
     <th>ID</th>
@@ -22,8 +22,8 @@
       <td>{{row.Harvested}}</td>
       <td>{{row.Location}}</td>
       <td>{{row.Description}}</td>
-      <td><a href='{{url_for("edit_user",ID=row.ID)}}' class='btn btn-primary'>Edit</a></td>
-      <td><a href='{{url_for("delete_user",ID=row.ID)}}' class='btn btn-danger'
+      <td><a href='{{url_for("edit_plant",ID=row.ID)}}' class='btn btn-primary'>Edit</a></td>
+      <td><a href='{{url_for("delete_plant",ID=row.ID)}}' class='btn btn-danger'
           onclick='return confirm("Are You Sure")'>Delete</a></td>
     </tr>
     {%endfor%}
