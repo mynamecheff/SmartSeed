@@ -1,109 +1,102 @@
 {% extends "layout.html" %}
 
+{% block hero %}
 
-
-{% block body %}
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card mt-4">
-            <div class="card-header bg-smartseed text-white">
-                <h4 class="card-title mb-0">About SmartSeed</h4>
-            </div>
-            <div class="card-body">
-                <p>
-                    At SmartSeed, we are committed to revolutionizing the way we grow and consume food. We specialize in
-                    vertical farming technology that enables us to grow fresh,
-                    healthy produce all year round, using fewer resources and less land. Our mission is to make
-                    sustainable, locally grown food accessible to everyone, and we're proud
-                    to be leading the way in this exciting field.
-                </p>
-                <p> 
-                    We're currently focusing on growing peas, a delicious and nutritious legume that's in high demand but often difficult to find locally. 
-                    By growing peas in our vertical farm, we're able to provide a fresh and sustainable alternative to imported peas, which often come with a significant environmental footprint. 
-                    Our team of experts is dedicated to perfecting the growing process, so we can offer the best possible product to our customers.
-                </p>
-            </div>
-        </div>
-    </div>
+<div class="jumbotron jumbotron-fluid bg-smartseed text-light">
+  <div class="container">
+    <h1 class="display-4">About SmartSeed</h1>
+  </div>
 </div>
 
-<div class="row justify-content-center mt-5">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header bg-smartseed text-light">
-                <h4 class="card-title mb-0">Our Team</h4>
+{% endblock %}
+
+{% block body %}
+
+
+    <p class="text-secondary fs-5">
+        At SmartSeed, we are committed to revolutionizing the way we grow and consume food. We specialize in
+        vertical farming technology that enables us to grow fresh,
+        healthy produce all year round, using fewer resources and less land. Our mission is to make
+        sustainable, locally grown food accessible to everyone, and we're proud
+        to be leading the way in this exciting field.
+    </p>
+    <p class="text-secondary fs-5">
+        We're currently focusing on growing peas, a delicious and nutritious legume that's in high demand but often difficult to find locally. 
+        By growing peas in our vertical farm, we're able to provide a fresh and sustainable alternative to imported peas, which often come with a significant environmental footprint. 
+        Our team of experts is dedicated to perfecting the growing process, so we can offer the best possible product to our customers.
+    </p>
+
+    <div class="row gy-4">
+        <div class="col-md-4">
+            <div class="card-body text-center">
+                <img src="{{ url_for('static', filename='img/htph.jpg') }}" alt="John Doe"
+                    class="img-fluid rounded mb-3">
+                <h5 class="card-title mb-0">Albert de Panzo</h5>
+                <div class="text-muted mb-2">Guru</div>
+                <div class="d-flex flex-row justify-content-center align-items-center">
+                    <!--TODO:  ADD LINKS TO SOME COULD BE RANDOM-->
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card bg-light">
-                            <div class="card-body text-center">
-                                <img src="{{ url_for('static', filename='img/htph.jpg') }}" alt="John Doe"
-                                    class="img-fluid rounded-circle mb-3">
-                                <h5 class="card-title mb-0">Albert de Panzo</h5>
-                                <div class="text-muted mb-2">Guru</div>
-                                <a href="#" class="btn btn-success btn-sm">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card bg-light">
-                            <div class="card-body text-center">
-                                <img src="{{ url_for('static', filename='img/htph.jpg') }}" alt="Jane Doe"
-                                    class="img-fluid rounded-circle mb-3">
-                                <h5 class="card-title mb-0">Aske Badabing</h5>
-                                <div class="text-muted mb-2">System Admin</div>
-                                <a href="#" class="btn btn-success btn-sm">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card bg-light">
-                            <div class="card-body text-center">
-                                <img src="{{ url_for('static', filename='img/htph.jpg') }}" alt="Bob Smith"
-                                    class="img-fluid rounded-circle mb-3">
-                                <h5 class="card-title mb-0">Casper Nordmand</h5>
-                                <div class="text-muted mb-2">Designer</div>
-                                <a href="#" class="btn btn-success btn-sm">View Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card bg-light">
-                            <div class="card-body text-center">
-                                <img src="{{ url_for('static', filename='img/htph.jpg') }}" alt="Bob Smith"
-                                    class="img-fluid rounded-circle mb-3">
-                                <h5 class="card-title mb-0">Kasper Kong</h5>
-                                    <div class="text-muted mb-2">Practical Designer</div>
-                                    <a href="#" class="btn btn-success btn-sm">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card bg-light">
-                                <div class="card-body text-center">
-                                    <img src="{{ url_for('static', filename='img/htph.jpg') }}" alt="Bob Smith"
-                                        class="img-fluid rounded-circle mb-3">
-                                    <h5 class="card-title mb-0">Martin Dolmio</h5>
-                                        <div class="text-muted mb-2">Website Dev</div>
-                                        <a href="#" class="btn btn-success btn-sm">View Profile</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-body text-center">
+                <img src="{{ url_for('static', filename='img/htph.jpg') }}" alt="John Doe"
+                    class="img-fluid rounded mb-3">
+                <h5 class="card-title mb-0">Aske Badabing</h5>
+                <div class="text-muted mb-2">System Admin</div>
+                <div class="d-flex flex-row justify-content-center align-items-center">
+                    <!--TODO:  ADD LINKS TO SOME COULD BE RANDOM-->
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-body text-center">
+                <img src="{{ url_for('static', filename='img/htph.jpg') }}" alt="John Doe"
+                    class="img-fluid rounded mb-3">
+                <h5 class="card-title mb-0">Casper Nordeidet</h5>
+                <div class="text-muted mb-2">Tvilsom speler</div>
+                <div class="d-flex flex-row justify-content-center align-items-center">
+                    <!--TODO:  ADD LINKS TO SOME COULD BE RANDOM-->
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-body text-center">
+                <img src="{{ url_for('static', filename='img/htph.jpg') }}" alt="John Doe"
+                    class="img-fluid rounded mb-3">
+                <h5 class="card-title mb-0">Casper Bruker Dong</h5>
+                <div class="text-muted mb-2">Praktisk Rasist</div>
+                <div class="d-flex flex-row justify-content-center align-items-center">
+                    <!--TODO:  ADD LINKS TO SOME COULD BE RANDOM-->
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-body text-center">
+                <img src="{{ url_for('static', filename='img/htph.jpg') }}" alt="John Doe"
+                    class="img-fluid rounded mb-3">
+                <h5 class="card-title mb-0">Martin Pastasaus</h5>
+                <div class="text-muted mb-2">Italian Dev</div>
+                <div class="d-flex flex-row justify-content-center align-items-center">
+                    <!--TODO:  ADD LINKS TO SOME COULD BE RANDOM-->
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-secondary m-2" href="#!"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<style>
-
-.bg-smartseed {
-  background-color: #2e6e6e;
-}
-
-</style>
 
 {% endblock %}

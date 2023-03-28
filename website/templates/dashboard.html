@@ -1,8 +1,13 @@
 {% extends 'layout.html' %}
+
+{% block hero %}
+<div class="jumbotron jumbotron-fluid mb-0 bg-smartseed text-light">
+  <div class="container">
+    <h1 class="display-4">Your SmartSeed farm infograph</h1>
+  </div>
+</div>
+{% endblock %}
 {% block body %}
-
-
-<h3 class='text-center text-muted mb-3'>Your SmartSeed farm infograph</h3>
 <p class='text-right'><a href='{{url_for("add_plant")}}' class='btn btn-success '>+Add User</a></p>
 <table class='table table-bordered'>
   <thead>

@@ -1,38 +1,38 @@
 {% extends 'layout.html' %}
 
-{% block body %}
-
-<div class="jumbotron jumbotron-fluid bg-smartseed text-light">
+{% block hero %}
+<div class="jumbotron jumbotron-fluid mb-0 bg-smartseed text-light">
   <div class="container">
     <h1 class="display-4">Welcome to our Vertical Farm</h1>
     <p class="lead">Fresh and sustainable produce grown right here in our vertical farm. Welcome to a greener future!</p>
   </div>
 </div>
-<div id="carouselExampleControls" class="carousel slide mt-5" data-ride="carousel">
+<div>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="{{ url_for('static', filename='img/2.jpg') }}" alt="First slide">
+      <img class="d-block img-fluid w-100" src="{{ url_for('static', filename='img/2.jpg') }}" alt="First slide">
       <div class="carousel-caption">
         <h5>Indoor Agriculture</h5>
         <p>Controlled environment for consistent yields</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{{ url_for('static', filename='img/1.png') }}" alt="second slide">
+      <img class="d-block img-fluid w-100" src="{{ url_for('static', filename='img/1.png') }}" alt="second slide">
       <div class="carousel-caption">
         <h5>Better Yields</h5>
         <p>Quality peas grown right in our farm</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{{ url_for('static', filename='img/3.jpg') }}" alt="third slide">
+      <img class="d-block img-fluid w-100" src="{{ url_for('static', filename='img/3.jpg') }}" alt="third slide">
       <div class="carousel-caption">
         <h5>Organic Produce</h5>
         <p>Free from harmful chemicals and pesticides</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{{ url_for('static', filename='img/4.jpg') }}" alt="fourth slide">
+      <img class="d-block img-fluid w-100" src="{{ url_for('static', filename='img/4.jpg') }}" alt="fourth slide">
       <div class="carousel-caption">
         <h5>Sustainable Agriculture</h5>
         <p>Reduce environmental impact and promote eco-friendly practices</p>
@@ -49,18 +49,22 @@
   </a>
 </div>
 
-<div class="row mt-5">
+
+{% endblock %}
+
+{% block body %}
+<div class="row mt-5 gy-5">
   <div class="col-md-6">
-    <h2>Our Mission</h2>
-    <p>At our vertical farm, we are committed to providing fresh, nutritious, and sustainably-grown produce to our
+    <h2><i class="fa-solid fa-mountain-sun mr-3" style="color:rgb(46, 110, 110);"></i>Our Mission</h2>
+    <p class="text-secondary">At our vertical farm, we are committed to providing fresh, nutritious, and sustainably-grown produce to our
       community. Our mission is to revolutionize agriculture by using innovative indoor farming techniques that
       conserve water, reduce waste, and eliminate the need for harmful chemicals and pesticides. By growing food
       locally, we are able to support the local economy, reduce food transportation costs, and offer our customers the
       freshest and most flavorful produce available.</p>
   </div>
   <div class="col-md-6">
-    <h2>Our Products</h2>
-    <p>Our farm specializes in a variety of leafy greens, herbs, and microgreens. All of our products are grown using
+    <h2><i class="fa-solid fa-seedling mr-3" style="color:rgb(46, 110, 110);"></i>Our Products</h2>
+    <p class="text-secondary">Our farm specializes in a variety of leafy greens, herbs, and microgreens. All of our products are grown using
       organic, non-GMO seeds and are free from harmful chemicals and pesticides. We offer a wide range of produce that
       is always fresh, flavorful, and nutritious. Visit our online store to order our products and have them delivered
       straight to your door.</p>
@@ -68,15 +72,16 @@
 </div>
 <div class="row mt-5">
   <div class="col-md-6">
-    <h2>Our Farming Techniques</h2>
-    <p>Our vertical farm uses a state-of-the-art hydroponic system that allows us to grow plants in a controlled
+    <h2><i class="fa-solid fa-tractor mr-3" style="color:rgb(46, 110, 110);"></i>Our Farming Techniques</h2>
+    <p class="text-secondary">Our vertical farm uses a state-of-the-art hydroponic system that allows us to grow plants in a controlled
       environment without soil. This system conserves water by recycling it through the roots of the plants and
       eliminates the need for harmful pesticides and herbicides. Our plants receive the perfect amount of nutrients
       and light to grow quickly and produce high-quality, flavorful produce year-round.</p>
   </div>
   <div class="col-md-6">
-    <h2>Our Team</h2>
-    <p>Our team is made up of passionate individuals who are dedicated to sustainable agriculture and providing our
+    <h2><i class="fa fa-people-group mr-3" style="color:rgb(46, 110, 110);"></i>
+      Our Team</h2>
+    <p class="text-secondary">Our team is made up of passionate individuals who are dedicated to sustainable agriculture and providing our
       community with fresh, locally-grown produce. We believe in transparency, quality, and community involvement. Our
       team members are always happy to answer any questions you may have about our farming practices or our products.
       Contact us today to learn more!</p>
