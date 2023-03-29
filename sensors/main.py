@@ -1,17 +1,21 @@
-from machine import UART
-import time
+import paho.mqtt.client as mqtt
 
-# Define pins for UART communication
-rx = 16
-tx = 17
+# Define callback functions for MQTT events
+def on_connect(client, userdata, flags, rc):
+    print("Connected with result code " + str(rc))
+    client.subscribe("test")
 
-# Initialize serial communication through UART
-uart = UART(2, baudrate=115200, rx=rx, tx=tx, timeout=10)
+def on_message(client, userdata, msg):
+    print(msg.topic + "hey " + str(msg.payload))
 
-while True:
-  
-  # Send data to Raspberry Pi
-  uart.write("Hello Raspberry Pi!\n")
+# Connect to MQTT broker
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect("192.168.173.156", 1883, 60)
 
-  # Wait for 1 second
-  time.sleep(1)
+# Publish a message
+client.publish("test", "Hello from Raspberry Pi!")
+
+# Keep the client running to receive messages
+client.loop_forever()
