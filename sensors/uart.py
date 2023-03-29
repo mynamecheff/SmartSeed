@@ -1,21 +1,21 @@
-from machine import UART
-import time
+import paho.mqtt.client as mqtt
 
-# Define pins for UART communication
-rx = 16
-tx = 1# Initialize seri
-import serial
+# Define callback functions for MQTT events
+def on_connect(client, userdata, flags, rc):
+    print("Connected with result code " + str(rc))
+    client.subscribe("test")
 
-# Define serial port configuration
-serial_port = '/dev/ttyAMA0'
-baud_rate = 115200
+def on_message(client, userdata, msg):
+    print(msg.topic + "hey " + str(msg.payload))
 
-# Initialize serial communication object
-ser = serial.Serial(serial_port, baud_rate)
+# Connect to MQTT broker
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect("192.168.173.156", 1883, 60)
 
-while True:
-    # Read incoming data from ESP32
-    data = ser.readline().decode("utf-8")
+# Publish a message
+client.publish("test", "Hello from Raspberry Pi!")
 
-    # Print the received data
-    print(data)
+# Keep the client running to receive messages
+client.loop_forever()
