@@ -1,21 +1,25 @@
-import paho.mqtt.client as mqtt
+import network
+from umqtt.simple2 import MQTTClient
 
-# Define callback functions for MQTT events
-def on_connect(client, userdata, flags, rc):
-    print("Connected with result code " + str(rc))
-    client.subscribe("test")
+# Set up WiFi connection
+ssid = "Martin"
+password = "123456798"
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(ssid, password)
 
-def on_message(client, userdata, msg):
-    print(msg.topic + "hey " + str(msg.payload))
+# Set up MQTT client
+broker_ip = "192.168.173.156" # Replace with Raspberry Pi's IP address
+port = 1883
+client_id = "esp32_client"
+topic = b"test"
+message = b"Hello from ESP32!"
 
-# Connect to MQTT broker
-client = mqtt.Client()
-client.on_connect = on_connect
-client.on_message = on_message
-client.connect("192.168.173.156", 1883, 60)
+def main(server=broker_ip, port=port):
+    c = MQTTClient(client_id, server, port)
+    c.connect()
+    c.publish(topic, message)
+    c.disconnect()
 
-# Publish a message
-client.publish("test", "Hello from Raspberry Pi!")
-
-# Keep the client running to receive messages
-client.loop_forever()
+if __name__ == "__main__":
+    main()
