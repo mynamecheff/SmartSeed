@@ -87,7 +87,7 @@ def about():
 
 @app.route("/dashboard")
 def dashboard():
-    con = sql.connect("db_plants.db")
+    con = sql.connect(DB_NAME)
     con.row_factory = sql.Row
     cur = con.cursor()
     cur.execute("select * from plants")
@@ -103,7 +103,7 @@ def add_plant():
         harvested = request.form['Harvested']
         location = request.form['Location']
         description = request.form['Description']
-        con = sql.connect("db_plants.db")
+        con = sql.connect(DB_NAME)
         cur = con.cursor()
         cur.execute("insert into plants(Sort, Planted, Harvested, Location, Description) values (?,?,?,?,?)",
                     (sort, planted, harvested, location, description))
@@ -121,14 +121,14 @@ def edit_plant(ID):
         harvest = request.form['Harvested']
         location = request.form['Location']
         description = request.form['Description']
-        con = sql.connect("db_plants.db")
+        con = sql.connect(DB_NAME)
         cur = con.cursor()
         cur.execute("update plants set Sort=?,Planted=?,Harvested=?,Location=?,Description=? where ID=?",
                      (sort, planted, harvest, location, description, ID))
         con.commit()
         flash('Plants Updated', 'success')
         return redirect(url_for("dashboard"))
-    con = sql.connect("db_plants.db")
+    con = sql.connect(DB_NAME)
     con.row_factory = sql.Row
     cur = con.cursor()
     cur.execute("select * from plants where ID=?", (ID,))
@@ -138,7 +138,7 @@ def edit_plant(ID):
 
 @app.route("/delete_plant/<string:ID>", methods=['GET'])
 def delete_plant(ID):
-    con = sql.connect("db_plants.db")
+    con = sql.connect(DB_NAME)
     cur = con.cursor()
     cur.execute("delete from plants where ID=?", (ID,))
     con.commit()
@@ -147,6 +147,6 @@ def delete_plant(ID):
 
 
 if __name__ == '__main__':
-    client.loop_start()
+ #   client.loop_start()
     app.secret_key = 'admin123'
     app.run(debug=True)

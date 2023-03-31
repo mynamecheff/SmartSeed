@@ -21,6 +21,14 @@ sql ='''CREATE TABLE "Plants" (
 )'''
 cur.execute(sql)
 
+sql ='''CREATE TABLE "sensor_data" (
+	"ID"	INTEGER PRIMARY KEY AUTOINCREMENT,
+	"value1"	TEXT,
+    "value2"	TEXT
+)'''
+
+cur.execute(sql)
+
 #commit changes
 con.commit()
 

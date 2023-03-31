@@ -6,9 +6,11 @@
     <h1 class="display-4">Your SmartSeed farm information</h1>
   </div>
 </div>
+
 {% endblock %}
 {% block body %}
-<p class='text-right'><a href='{{url_for("add_plant")}}' class='btn btn-success '>+Add User</a></p>
+<p class='text-right'><a href='{{url_for("chart")}}' class='btn btn-success '>Go to Chart</a></p>
+<p class='text-right'><a href='{{url_for("add_plant")}}' class='btn btn-success '>+Add Plant</a></p>
 <table class='table table-bordered'>
   <thead>
     <th>ID</th>
