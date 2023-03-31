@@ -16,13 +16,14 @@ password = "123456789"
 wlan = network.WLAN(network.STA_IF)
 if not wlan.isconnected():
     wlan.connect(ssid)
-    
+
 
 # Set up MQTT client
 broker_ip = "192.168.4.5" # raspberry pi ip adresse
 port = 1883
 client_id = "esp32_client"
 topic = "test"
+message = "Hello from ESP32!"
 
 
 # DHT11 sensor setup
@@ -93,19 +94,19 @@ def control_neopixel(water_percentage):
         print("Test light is ON")
         pixels.fill((7, 3, 7))  # Off
         pixels.write()
-        
-        
-        
+
+
+
 #### OLED Display ####
 
 # Display tid og dato
 display.text("Date: {}-{}-{}".format(day, month, year), 0, 0)
 display.text("Time: {}:{}:{}".format(hour, minute, second), 0, 10)
-    
+
 # Display gennemsnitlig jordfugtighed og vandmængde i procent
 display.text("avg. moist: {}%".format(soil_moisture_percentage), 0, 20)
 display.text("Water Level: {}%".format(water_percentage), 0, 30)
-    
+
 # Display temperatur og humidity
 display.text("Temp: {}C".format(temp), 0, 40)
 display.text("Hum:{}%".format(temp), 0, 50)
@@ -129,26 +130,26 @@ while True:
     i = 0
     i = i + 1
     print("READING: " + str(i))
-    
+
     # Hent nuværende tid og dato fra RTC (Real Time Clock)   
     print("Date: {}-{}-{}".format(day, month, year))
     print("Time: {}:{}:{}".format(hour, minute, second))
-    
+
     # Aflæs jordfugtighedsdataen fra sensor 1 og 2 og print procentdelen i shell
     print("Soil moisture percentage:", soil_moisture_percentage)
     print("Soil moisture percentage 2:", soil_moisture_percentage_2)
-    
+
     # Aflæs vandsensordataen og print procentdelen i shell
     print("Water percentage:", water_percentage)
-    
+
     # Aflæs dataen fra DHT11 sensoren og print resultaterne i shell
 
     print("Temperature: ", temp, "°C")
     print("Humidity: ", hum, "%")
-        
+
     #Kontrollér neopixel farverne baseret på udregningen af vandsensorens data i procent
     control_neopixel(water_percentage)
-    
+
     time.sleep(2)
 
     # Check if either sensor is below the threshold
@@ -162,7 +163,7 @@ while True:
         relay.value(0)
         print("Pump is OFF")
         time.sleep(10)
-    
+
     data = (soil_moisture_percentage + soil_moisture_percentage_2)/2
     data2 = water_percentage
     print("yo")
@@ -170,10 +171,3 @@ while True:
     print(data3)
     main(data3)
     time.sleep(4)
-
-
-
-
-
-
-
