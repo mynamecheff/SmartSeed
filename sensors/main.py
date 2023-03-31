@@ -23,7 +23,6 @@ broker_ip = "192.168.4.5" # raspberry pi ip adresse
 port = 1883
 client_id = "esp32_client"
 topic = "test"
-message = "Hello from ESP32!"
 
 
 # DHT11 sensor setup
@@ -171,12 +170,7 @@ while True:
     print(data3)
     main(data3)
     time.sleep(4)
-    
-    
-    # Stop the loop if the soil moisture sensor is at 80%
-    if soil_moisture_percentage >= soil_moisture_threshold and soil_moisture_percentage_2 >= soil_moisture_threshold:
-        continue
-    
+
 
 
 
