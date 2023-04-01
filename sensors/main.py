@@ -11,8 +11,8 @@ from umqtt.simple2 import MQTTClient
 rtc = machine.RTC()
 
 # Set up WiFi connection
-ssid = "ESPNET"
-password = "123456789"
+ssid = "ESPNET" #your 802.11 name
+password = "123456789" #802.11 password
 wlan = network.WLAN(network.STA_IF)
 if not wlan.isconnected():
     wlan.connect(ssid)
@@ -23,7 +23,6 @@ broker_ip = "192.168.4.5" # raspberry pi ip adresse
 port = 1883
 client_id = "esp32_client"
 topic = "test"
-message = "Hello from ESP32!"
 
 
 # DHT11 sensor setup
@@ -115,12 +114,10 @@ display.text("Hum:{}%".format(temp), 0, 50)
 display.show()
 
 
-def main(data3, server=broker_ip, port=port):
+def main(data, server=broker_ip, port=port):
     c = MQTTClient(client_id, server, port)
     c.connect()
-    print("tf")
-    c.publish(topic, data3)
-    print("heellow")
+    c.publish(topic, data)
     c.disconnect()
 
 
@@ -164,10 +161,8 @@ while True:
         print("Pump is OFF")
         time.sleep(10)
 
-    data = (soil_moisture_percentage + soil_moisture_percentage_2)/2
-    data2 = water_percentage
-    print("yo")
-    data3 = str(data) + ", " + str(data2)
-    print(data3)
-    main(data3)
+    soil = (soil_moisture_percentage + soil_moisture_percentage_2)/2
+    data = str(soil) + ", " + str(water_percentage)
+    print(data)
+    main(data)
     time.sleep(4)
